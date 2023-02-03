@@ -26,6 +26,8 @@ ARG repo
 RUN git clone --recursive $repo
 
 WORKDIR /ton
+ARG tag=master
+RUN git checkout $tag
 RUN git submodule update
 
 ARG is_testnet
