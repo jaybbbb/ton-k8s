@@ -1,5 +1,12 @@
 #!/bin/bash
 
+sudo mkfs -t xfs /dev/nvme1n1 || exit 1;
+sudo mkdir -p /data
+sudo mount /dev/nvme1n1 /data 
+
+UUID=$(lsblk -f | grep nvme1n1 | awk '{print $3}')
+echo "UUID=$UUID  /data  xfs  defaults,nofail  0  2" | sudo tee -a /etc/fstab
+
 sudo apt update
 sudo apt install \
     ca-certificates \
