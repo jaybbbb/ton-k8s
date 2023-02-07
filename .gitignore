@@ -1,5 +1,7 @@
 .idea/*
 ton-compile-source/keys
+composes/config
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
